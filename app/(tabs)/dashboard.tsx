@@ -1,14 +1,13 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View } from 'react-native';
 
-export default function SoundScreen(){
+export default function DashboardScreen(){
     return (
         <View style={style.constainer}>
-            <Text style={style.title}>Sounds Page</Text>
-            <Text>Environmental • Music • Therapeutic • Mixer</Text>
+            <Text style={style.title}>Dashboard Screen</Text>
+            <Text>Welcome to your dashboard!</Text>
         </View>
     )
 }
-
 
 const style = StyleSheet.create({
     constainer: {
@@ -16,7 +15,7 @@ const style = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center'
     },
-    title:{
+    title: {
         fontSize: 24,
         fontWeight: 'bold'
     }
