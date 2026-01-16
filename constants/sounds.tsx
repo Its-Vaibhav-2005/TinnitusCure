@@ -25,4 +25,20 @@ const THERAPEUTIC_SOUNDS = [
     }
 ]
 
-export { THERAPEUTIC_SOUNDS };
+const MUSIC_SOUNDS = [
+  {
+    id: '1',
+    songName: 'Om',
+    iconName: 'BrainCircuit',
+    file: require('@/assets/Music/om_432hz.mp3')
+  },
+  {
+    id: '2',
+    songName: 'Himalayan Bowl',
+    iconName: 'Mountain',
+    file: require('@/assets/Music/himalayan_bowl_528Hz.mp3')
+  }
+
+] 
+
+export { THERAPEUTIC_SOUNDS, MUSIC_SOUNDS };

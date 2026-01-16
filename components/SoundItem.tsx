@@ -68,6 +68,8 @@ const style = StyleSheet.create({
     fontSize: 15,
     fontWeight: '600',
     color: '#333',
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   activeName: {
     color: '#fff',
