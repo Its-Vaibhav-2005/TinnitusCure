@@ -1,6 +1,6 @@
 export const CATEGORIES = [
   {
-    id: 'env',
+    id: 'environmental',
     title: 'Environmental',
     description: 'Birds, Rain, Ocean, Wind...',
     icon: 'Trees',
@@ -14,7 +14,7 @@ export const CATEGORIES = [
     colors: ['#667eea', '#764ba2'] as [string, string],
   },
   {
-    id: 'therapy',
+    id: 'therapeutic',
     title: 'Therapeutic',
     description: 'White, Brown, Pink Noise...',
     icon: 'Waves',

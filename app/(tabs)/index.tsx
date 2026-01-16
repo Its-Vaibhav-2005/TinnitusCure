@@ -1,10 +1,13 @@
 import { StyleSheet, Text, View, ScrollView } from 'react-native'
 import { CATEGORIES } from '@/constants/category'
 import { CategoryCard } from '@/components/CategoryCard'
+import { useRouter } from 'expo-router'
 
 export default function SoundScreen(){
+  const router = useRouter()
   const handlePress = (id:string)=>{
     console.log(`Navigated to: ${id}`)
+    router.push(`sounds/${id}` as any)
   }
   return(
     <ScrollView style={style.constainer} contentContainerStyle={style.contentContainer}>
