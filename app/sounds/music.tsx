@@ -5,51 +5,50 @@ import { Stack } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { MUSIC_SOUNDS } from "@/constants/sounds";
 import { SoundItem } from "@/components/SoundItem";
+import { useAudioStore } from "@/store/useAudioStore";
+import { handleSoundToggle } from "@/utils/audioHelpers";
+
 
 export default function TherapeuticPage(){
- const [activeSoundId, setActiveSoundId] = useState<string|null>(null)
- const toggleSound = (id: string)=>{
-    setActiveSoundId(activeSoundId===id? null: id)
-    console.log(`Toggleed Sound: ${id}`)
- }
- return (
-  <SafeAreaView style={style.container}>
-    <Stack.Screen
-      options={{
-        title: "Music Sounds",
-        headerTitleStyle: { fontWeight: 'bold' },
-        headerShadowVisible: false,
-        headerStyle: { backgroundColor: '#F8F9FA' }
-      }}
-    />
-    <FlatList 
-      data={MUSIC_SOUNDS}
-      keyExtractor={(item)=>item.id}
-      numColumns={2}
-      columnWrapperStyle={style.row}
-      contentContainerStyle={style.listContent}
-      ListHeaderComponent={()=>(
-        <View style={style.headerArea}>
-          <Text style={style.welcomeText}>
-            Welcome to Music sounds
-          </Text>
-          <Text style={style.subText}>
-            Find Your Calm!
-          </Text>
-        </View>
-      )}
-      renderItem={({item})=>(
-        <SoundItem 
-          name={item.songName}
-          iconName={item.iconName as any}
-          isActive={activeSoundId === item.id}
-          onPress={()=>toggleSound(item.id)}
-        />
-      )}
-    />
-  </SafeAreaView>
- )
-}
+  const playingId = useAudioStore((state)=>state.playingId)
+  
+  return (
+    <SafeAreaView style={style.container}>
+      <Stack.Screen
+        options={{
+          title: "Music Sounds",
+          headerTitleStyle: { fontWeight: 'bold' },
+          headerShadowVisible: false,
+          headerStyle: { backgroundColor: '#F8F9FA' }
+        }}
+      />
+      <FlatList 
+        data={MUSIC_SOUNDS}
+        keyExtractor={(item)=>item.id}
+        numColumns={2}
+        columnWrapperStyle={style.row}
+        contentContainerStyle={style.listContent}
+        ListHeaderComponent={()=>(
+          <View style={style.headerArea}>
+            <Text style={style.welcomeText}>
+              Welcome to Music sounds
+            </Text>
+            <Text style={style.subText}>
+              Find Your Calm!
+            </Text>
+          </View>
+        )}
+        renderItem={({item})=>(
+          <SoundItem 
+            name={item.songName}
+            iconName={item.iconName as any}
+            isActive={playingId === item.id}
+            onPress={()=>handleSoundToggle(item.id, item.file)}
+          />
+        )}
+      />
+    </SafeAreaView>
+)}
 
 const style = StyleSheet.create({
   container: {

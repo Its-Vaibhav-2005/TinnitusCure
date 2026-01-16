@@ -4,13 +4,11 @@ import { Stack } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { THERAPEUTIC_SOUNDS } from "@/constants/sounds";
 import { SoundItem } from "@/components/SoundItem";
+import { useAudioStore } from "@/store/useAudioStore";
+import { handleSoundToggle } from "@/utils/audioHelpers";
 
 export default function TherapeuticPage(){
- const [activeSoundId, setActiveSoundId] = useState<string|null>(null)
- const toggleSound = (id: string)=>{
-    setActiveSoundId(activeSoundId===id? null: id)
-    console.log(`Toggleed Sound: ${id}`)
- }
+ const playingId = useAudioStore((state)=>state.playingId)
  return (
   <SafeAreaView style={style.container}>
     <Stack.Screen
@@ -41,8 +39,8 @@ export default function TherapeuticPage(){
         <SoundItem 
           name={item.songName}
           iconName={item.iconName as any}
-          isActive={activeSoundId === item.id}
-          onPress={()=>toggleSound(item.id)}
+          isActive={playingId===item.id}
+          onPress={()=>handleSoundToggle(item.id, item.file)}
         />
       )}
     />
