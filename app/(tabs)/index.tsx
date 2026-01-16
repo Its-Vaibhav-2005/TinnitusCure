@@ -1,23 +1,52 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, ScrollView } from 'react-native'
+import { CATEGORIES } from '@/constants/category'
+import { CategoryCard } from '@/components/CategoryCard'
 
 export default function SoundScreen(){
-    return (
-        <View style={style.constainer}>
-            <Text style={style.title}>Sounds Page</Text>
-            <Text>Environmental • Music • Therapeutic • Mixer</Text>
-        </View>
-    )
+  const handlePress = (id:string)=>{
+    console.log(`Navigated to: ${id}`)
+  }
+  return(
+    <ScrollView style={style.constainer} contentContainerStyle={style.contentContainer}>
+      <Text style={style.header}>Sound Therapy</Text>
+      <Text style={style.subHeader}>Select a category</Text>
+      <View style={style.cardList}>
+        {CATEGORIES.map((item)=>(
+          <CategoryCard 
+            key={item.id}
+            title={item.title}
+            description={item.description}
+            iconName={item.icon as any}
+            colors={item.colors}
+            onPress={()=>handlePress(item.id)}
+          />
+        ))}
+      </View>
+    </ScrollView>
+  )
 }
 
 
 const style = StyleSheet.create({
     constainer: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center'
+        backgroundColor: '#F8F9FA'
     },
-    title:{
-        fontSize: 24,
-        fontWeight: 'bold'
-    }
+    contentContainer: {
+      padding: 16,
+      paddingTop: 20
+    },
+    header: {
+      fontSize: 28,
+      fontWeight: '800',
+      color: '1A1A1A'
+    },
+    subHeader: {
+      fontSize: 16,
+      color: '#666',
+      marginBottom: 20
+    },
+   cardList: {
+    alignItems: "center"
+   } 
 })
