@@ -21,7 +21,7 @@ export default function MixerPage(){
             {activeSounds.length>0 && (<Trash2 color="#FF4B4B" size={20} onPress={stopAll}/>)}
           </View>
           {activeSounds.length===0?(
-            <Text style={style.emptyText}>Select sound below to start mixing</Text>
+            <Text style={style.emptyText}> Select sound below to start mixing </Text>
           ):(
             activeSounds.map((sound)=>(
               <View key={sound.id} style={style.volumeRow}>
@@ -40,7 +40,7 @@ export default function MixerPage(){
             ))
           )}
         </View>
-        <View style={style.divider}>
+        <View style={style.gridHeader}>
           <Text style={style.gridTitle}>Available Sounds</Text>
         </View>
         <FlatList
@@ -133,8 +133,6 @@ const style = StyleSheet.create({
     fontSize: 18,
     fontWeight: '700',
     color: '#333',
-    paddingLeft: 25,
-    marginTop: 8 
   },
   gridContent: { 
     paddingHorizontal: 16,

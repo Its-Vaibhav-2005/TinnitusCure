@@ -33,7 +33,7 @@ export const SoundItem = ({name, iconName, isActive, onPress}: SoundItemProps) =
 const style = StyleSheet.create({
   card:{
     flex: 1, 
-    margin: 8, // Add margin so items don't touch
+    margin: 8, 
     height: 120,
     backgroundColor: '#fff',
     borderRadius: 24,
@@ -65,8 +65,8 @@ const style = StyleSheet.create({
     backgroundColor: 'rgba(255, 255, 255, 0.2)',
   },
   name: {
-    fontSize: 15,
-    fontWeight: '600',
+    fontSize: 12,
+    fontWeight: '700',
     color: '#333',
     alignItems: 'center',
     justifyContent: 'center'
