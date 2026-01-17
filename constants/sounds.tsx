@@ -1,24 +1,24 @@
 const THERAPEUTIC_SOUNDS = [
     {
-        id: '1',
+        id: 'brown_noise',
         songName: 'Brown Noise',
         iconName: 'AudioWaveform',
         file: require('@/assets/Therapeutic/brown_noise.wav'),
     },
     {
-        id: '2',
+        id: 'pink_noise',
         songName: 'Pink Noise',
         iconName: 'AudioWaveform',
         file: require('@/assets/Therapeutic/pink_noise.wav'),
     },
     {
-        id: '3',
+        id: 'violet_noise',
         songName: 'Violet Noise',
         iconName: 'AudioWaveform',
         file: require('@/assets/Therapeutic/violet_noise.wav'),
     },
     {
-        id: '4',
+        id: 'white_noise',
         songName: 'White Noise',
         iconName: 'AudioWaveform',
         file: require('@/assets/Therapeutic/white_noise.wav'),
@@ -27,13 +27,13 @@ const THERAPEUTIC_SOUNDS = [
 
 const MUSIC_SOUNDS = [
   {
-    id: '1',
+    id: 'om',
     songName: 'Om',
     iconName: 'BrainCircuit',
     file: require('@/assets/Music/om_432hz.mp3')
   },
   {
-    id: '2',
+    id: 'himalayan_bowl',
     songName: 'Himalayan Bowl',
     iconName: 'Mountain',
     file: require('@/assets/Music/himalayan_bowl_528Hz.mp3')
