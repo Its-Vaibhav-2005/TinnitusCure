@@ -11,7 +11,7 @@ export interface Step{
 export interface ExerciseData{
   id: string;
   name: string;
-  vide: any;
+  video: any;
   steps: Step[];
 }
 
@@ -19,7 +19,8 @@ export interface ExerciseListItem{
   id: string;
   iconName: string;
   exerciseName: string;
-  data: ExerciseData
+  data: ExerciseData;
+  description: string;
 }
 
 // Exrecises 
@@ -42,7 +43,8 @@ export const EXERCISE_LIST: ExerciseListItem[] = [
     id: "bhramari",
     iconName: "atom",
     exerciseName: 'Bhramari Pranayama',
-    data: BHRAMARI
+    data: BHRAMARI,
+    description: 'Bhramari Pranayama, also known as "Humming Bee Breath",  is a calming yogic breathing technique where you produce a steady humming sound, similar to a buzzing bee, during exhalation. It is performed by inhaling deeply through the nose and exhaling slowly while keeping the mouth closed to create internal vibrations throughout the head and nervous system.'
   },
 ]
 
