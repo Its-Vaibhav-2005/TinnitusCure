@@ -10,7 +10,7 @@ export const htmlContent = `
         <style>
           body { 
             font-family: -apple-system, Roboto, sans-serif; 
-            padding: 20px; 
+            padding: 5px; 
             color: #333;
             line-height: 1.6;
           }
@@ -33,7 +33,7 @@ export const htmlContent = `
           }
           th, td {
             border: 1px solid #ddd;
-            padding: 12px;
+            padding: 10px;
             text-align: left;
           }
           th {

@@ -26,13 +26,13 @@ export default function ReadScreen(){
   
   if (Platform.OS === 'web') {
     return (
-      <SafeAreaView style={styles.container}>
+      <View style={styles.container}>
         <iframe 
           srcDoc={htmlContent} 
           style={{ width: '100%', height: '100%', border: 'none' }} 
           title="web-content"
         />
-      </SafeAreaView>
+      </View>
     );
   }
 
@@ -47,7 +47,7 @@ export default function ReadScreen(){
   }
 
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <WebView
         ref={webViewRef}
         originWhitelist={['*']}
@@ -70,7 +70,7 @@ export default function ReadScreen(){
           </View>
         )}
       />  
-    </SafeAreaView>
+    </View>
   )
 
 }
@@ -79,6 +79,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
+    padding: 0,
   },
   webview: {
     flex: 1,
