@@ -1,24 +1,94 @@
-import React from "react";
-import {View, Text, StyleSheet} from "react-native"
+import React, { useEffect, useRef, useState } from "react";
+import { WebView } from 'react-native-webview';
+import { SafeAreaView } from "react-native-safe-area-context";
+import {View, StyleSheet, Platform, Linking, ActivityIndicator, BackHandler} from "react-native";
+import { htmlContent } from "@/constants/readHTML";
 
 export default function ReadScreen(){
+  const webViewRef = useRef<WebView>(null);
+
+  const [canGoBack, setCanGoBack] = useState(false)
+
+  useEffect(()=>{
+    if(Platform.OS==='android'){
+      const onBackPress= () => {
+        if(canGoBack && webViewRef.current){
+          webViewRef.current.goBack()
+          return true;
+        }
+        return false
+      };
+      const backHandler = BackHandler.addEventListener('hardwareBackPress', onBackPress)
+
+      return () => backHandler.remove()
+    }
+  }, [canGoBack])
+  
+  if (Platform.OS === 'web') {
+    return (
+      <SafeAreaView style={styles.container}>
+        <iframe 
+          srcDoc={htmlContent} 
+          style={{ width: '100%', height: '100%', border: 'none' }} 
+          title="web-content"
+        />
+      </SafeAreaView>
+    );
+  }
+
+  const handleLinkPress = (request: any)=>{
+    const {url, navigationType} = request
+
+    if(url.startsWith('http') && navigationType==='click'){
+      Linking.openURL(url).catch((err)=>console.error("Couldn't load Page", err))
+      return false;
+    }
+    return true
+  }
 
   return (
-    <View style={style.constainer}>
-      <Text style={style.title}>Read Screen</Text>
-      <Text>About Tinnitus!</Text>
-    </View>
+    <SafeAreaView style={styles.container}>
+      <WebView
+        ref={webViewRef}
+        originWhitelist={['*']}
+        source={{html: htmlContent}}
+
+        onNavigationStateChange={(navState) => {
+          setCanGoBack(navState.canGoBack);
+        }}
+
+        onShouldStartLoadWithRequest={handleLinkPress}
+
+        allowsBackForwardNavigationGestures={true}
+        
+        javaScriptEnabled={true}
+        domStorageEnabled={true}
+        startInLoadingState={true}
+        renderLoading={() => (
+          <View style={styles.loader}>
+            <ActivityIndicator size="large" color="#007AFF" />
+          </View>
+        )}
+      />  
+    </SafeAreaView>
   )
+
 }
 
-const style = StyleSheet.create({
-    constainer: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center'
-    },
-    title: {
-        fontSize: 24,
-        fontWeight: 'bold'
-    }
-})
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+  },
+  webview: {
+    flex: 1,
+    backgroundColor: 'transparent',
+  },
+  loader: {
+    ...StyleSheet.absoluteFillObject,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'white',
+    zIndex: 99,
+  },
+});
