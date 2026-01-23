@@ -1,12 +1,15 @@
 import { Tabs } from "expo-router"
 import { Activity, LayoutDashboard, Volume2, BookOpenText } from "lucide-react-native"
+import HeartIcon from "@/components/DonateIcon"
 
 export default function TabsLayout(){
   return (
     <Tabs screenOptions={{
       tabBarActiveTintColor: '#2f95dc',
-      headerShown: true
+      headerShown: true,
+      headerRight: () => <HeartIcon/>
     }}>
+      {/* Main Tab */}
       <Tabs.Screen
         name="index"
         options={{
@@ -14,7 +17,7 @@ export default function TabsLayout(){
           tabBarIcon: ({color})=><BookOpenText size={24} color={color}/>
         }}
       />
-      // Main Tab
+      {/* Sound Tab */}
       <Tabs.Screen 
         name="music"
         options={{
@@ -22,7 +25,7 @@ export default function TabsLayout(){
           tabBarIcon: ({color}) => <Volume2 size={24} color={color} />
         }}
       />
-      // Exercises Tab
+      {/* Exercises Tab */}
       <Tabs.Screen 
         name="exercise"
         options={{
@@ -30,7 +33,7 @@ export default function TabsLayout(){
           tabBarIcon: ({color}) => <Activity size={24} color={color} />
         }}
       />
-      // Dasboard Tab
+      {/* Dasboard Tab */}
       <Tabs.Screen 
         name="dashboard"
         options={{
