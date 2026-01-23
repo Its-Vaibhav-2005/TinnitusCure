@@ -1,5 +1,5 @@
 import { Tabs } from "expo-router"
-import { Activity, LayoutDashboard, Volume2 } from "lucide-react-native"
+import { Activity, LayoutDashboard, Volume2, BookOpenText } from "lucide-react-native"
 
 export default function TabsLayout(){
   return (
@@ -7,9 +7,16 @@ export default function TabsLayout(){
       tabBarActiveTintColor: '#2f95dc',
       headerShown: true
     }}>
+      <Tabs.Screen
+        name="index"
+        options={{
+          title: "Read",
+          tabBarIcon: ({color})=><BookOpenText size={24} color={color}/>
+        }}
+      />
       // Main Tab
       <Tabs.Screen 
-        name="index"
+        name="music"
         options={{
           title: "Sounds",
           tabBarIcon: ({color}) => <Volume2 size={24} color={color} />
