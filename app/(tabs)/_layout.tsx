@@ -1,8 +1,15 @@
-import { Tabs } from "expo-router"
+import { Redirect, Tabs } from "expo-router"
 import { Activity, LayoutDashboard, Volume2, BookOpenText } from "lucide-react-native"
 import HeartIcon from "@/components/DonateIcon"
+import { useAuth } from "@clerk/clerk-expo"
 
 export default function TabsLayout(){
+  const {isSignedIn} = useAuth()
+
+  if(!isSignedIn){
+    return <Redirect href="/(auth)/sign-in" />
+  }
+
   return (
     <Tabs screenOptions={{
       tabBarActiveTintColor: '#2f95dc',
