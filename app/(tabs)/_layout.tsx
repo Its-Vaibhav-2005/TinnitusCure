@@ -1,5 +1,5 @@
 import { Redirect, Tabs } from "expo-router"
-import { Activity, LayoutDashboard, Volume2, BookOpenText } from "lucide-react-native"
+import { LayoutDashboard, BookOpenText, HeartPulse, GalleryVerticalEnd } from "lucide-react-native"
 import HeartIcon from "@/components/DonateIcon"
 import { useAuth } from "@clerk/clerk-expo"
 
@@ -26,18 +26,18 @@ export default function TabsLayout(){
       />
       {/* Sound Tab */}
       <Tabs.Screen 
-        name="music"
+        name="therapy"
         options={{
-          title: "Sounds",
-          tabBarIcon: ({color}) => <Volume2 size={24} color={color} />
+          title: "Therapy",
+          tabBarIcon: ({color}) => <HeartPulse size={24} color={color} />
         }}
       />
-      {/* Exercises Tab */}
+      {/* Literature Tab */}
       <Tabs.Screen 
-        name="exercise"
+        name="literature"
         options={{
-          title: "Exercise",
-          tabBarIcon: ({color}) => <Activity size={24} color={color} />
+          title: "Literature",
+          tabBarIcon: ({color}) => <GalleryVerticalEnd size={24} color={color} />
         }}
       />
       {/* Dasboard Tab */}
