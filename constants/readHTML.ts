@@ -1,112 +1,96 @@
 export const htmlContent = `
 <!DOCTYPE html>
-    <html>
-      <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-        
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-        
-        <style>
-          body { 
-            font-family: -apple-system, Roboto, sans-serif; 
-            padding: 5px; 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tinnitus, Bhramari Pranayama & Noise Therapy</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f7f7f7;
             color: #333;
-            line-height: 1.6;
-          }
+            line-height: 1.7;
+        }
 
-          /* Responsive Images */
-          img { 
-            max-width: 100%; 
-            height: auto; 
-            border-radius: 8px;
-            margin: 10px 0;
-          }
+        .container {
+            max-width: 900px;
+            margin-top: 0px;
+            background: #ffffff;
+            padding: 30px;
+        }
 
-          /* Responsive Tables */
-          table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            display: block; /* Allows scrolling */
-            overflow-x: auto; /* Horizontal scroll for small screens */
-          }
-          th, td {
-            border: 1px solid #ddd;
-            padding: 10px;
-            text-align: left;
-          }
-          th {
-            background-color: #f2f2f2;
-          }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
 
-          /* Links Styling */
-          a {
-            color: #007AFF;
-            text-decoration: none;
-            font-weight: bold;
-          }
-        </style>
-      </head>
-      <body>
-        
-        <h2>React Native HTML Render</h2>
-        <p>This page demonstrates rendering complex content inside a WebView.</p>
+        h2 {
+            color: #34495e;
+            margin-top: 40px;
+        }
 
-        <hr />
+        p {
+            font-size: 18px;
+        }
 
-        <h3>1. Math Formula (LaTeX)</h3>
-        <p>Here is the Quadratic Formula rendered using MathJax:</p>
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background: #eeeeee;
+            margin-top: 40px;
+            font-size: 14px;
+            color: #666;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Understanding Tinnitus and Natural Ways to Manage It</h1>
+
+        <h2>What is Tinnitus?</h2>
         <p>
-          $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}$$
+            Tinnitus is a condition where a person hears ringing, buzzing, hissing,
+            or humming sounds in the ears even when there is no external sound.
+            These sounds come from inside the ear or the brain and can be continuous
+            or occasional. Tinnitus is not a disease itself, but a symptom that often
+            appears due to loud noise exposure, ear damage, stress, or aging.
+        </p>
+        <h2>How Bhramari Pranayama Helps</h2>
+        <p>
+            Bhramari Pranayama is a yogic breathing technique where a gentle humming
+            sound is produced while exhaling. This humming creates soothing vibrations
+            in the head and ears, which helps calm the nervous system. It reduces stress,
+            anxiety, and mental restlessness—factors that often make tinnitus feel worse.
+        </p>
+        <p>
+            Regular practice of Bhramari Pranayama improves blood circulation around the
+            ears and brain, helping the mind relax and slowly reducing the awareness of
+            the ringing sound.
         </p>
 
-        <hr />
-
-        <h3>2. Responsive Image</h3>
-        <img src="https://images.unsplash.com/photo-1555099962-4199c345e5dd?w=800&q=80" alt="Code Example" />
-
-        <hr />
-
-        <h3>3. Data Table</h3>
-        <p>This table will scroll horizontally if the screen is too narrow.</p>
-        <table>
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Product Name</th>
-              <th>Price (USD)</th>
-              <th>Category</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>101</td>
-              <td>Wireless Headphones</td>
-              <td>$199.99</td>
-              <td>Electronics</td>
-            </tr>
-            <tr>
-              <td>102</td>
-              <td>Mechanical Keyboard</td>
-              <td>$89.50</td>
-              <td>Accessories</td>
-            </tr>
-            <tr>
-              <td>103</td>
-              <td>Gaming Mouse</td>
-              <td>$45.00</td>
-              <td>Accessories</td>
-            </tr>
-          </tbody>
-        </table>
-        <hr />
-        <h3>4. External Link</h3>
+        <h2>How Noise Therapy Helps</h2>
         <p>
-          Clicking this link will open your default browser: 
-          <br/>
-          <a href="https://reactnative.dev">Visit React Native Docs</a>
+            Noise therapy works by using soft background sounds such as white noise,
+            rainfall, ocean waves, or gentle music. These sounds do not remove tinnitus,
+            but they help mask the ringing, making it less noticeable—especially in
+            quiet environments like nighttime.
         </p>
-      </body>
-    </html>
+        <p>
+            Over time, the brain learns to ignore the tinnitus sound and focus less on it.
+            When combined with Bhramari Pranayama, noise therapy helps both the mind and
+            hearing system relax, making tinnitus easier to manage in daily life.
+        </p>
+    </div>
+
+    <div class="footer">
+        © 2026 | TinnitusCure | Natural Wellness & Awareness
+    </div>
+
+</body>
+</html>
+
 `

@@ -80,10 +80,12 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     padding: 0,
+    marginTop: 0,
   },
   webview: {
     flex: 1,
     backgroundColor: 'transparent',
+    marginTop: 0,
   },
   loader: {
     ...StyleSheet.absoluteFillObject,
